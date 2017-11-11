@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     if (window.DeviceOrientationEvent) {
-        document.getElementById("notice").innerHTML = "Gaaf! De DeviceOrientationEvent API word door dit toestel ondersteund.";
         window.addEventListener('deviceorientation', function (eventData) {
             // gamma: Tilting the device from left to right. Tilting the device to the right will result in a positive value.
             var tiltLR = eventData.gamma;
