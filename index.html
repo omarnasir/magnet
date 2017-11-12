@@ -6,11 +6,12 @@
 	<meta id="theme-color" name="theme-color" content="#ffffff">
 	<script type="text/javascript" src="./js/script.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="./js/gps.js" ></script>
-	<script type="text/javascript" src="./js/main.js" ></script>
-	<script type="text/javascript" src="./js/adapter-latest.js" ></script>
+	<script type="text/javascript" src="./js/gps.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/adapter-latest.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
 	<div class="orientation-data">
 		<div>
@@ -21,15 +22,19 @@
 		</div>
 	</div>
 	<div id="container">
-		<video id="gum-local" autoplay playsinline></video>
-		<div id="mapContainer">
-			<div id="map">
+		<video id="gum-local" autoplay playsinline>
 
-			</div>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_432x79gFb1uhTYGjzOuSdbl_IFgd1Sw&libraries=places&callback=pos"
-			 async defer></script>
+		</video>
+	</div>
+	<div id="mapContainer">
+		<div id="map">
+
 		</div>
-		<div id="infoContainer">
-		</div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_432x79gFb1uhTYGjzOuSdbl_IFgd1Sw&libraries=places&callback=pos"
+		 async defer></script>
+	</div>
+	<div id="infoContainer">
+	</div>
 </body>
+
 </html>
