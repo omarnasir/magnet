@@ -1,27 +1,30 @@
-<!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-	<title>Hello World!</title>
-	<script type="text/javascript" src="./js/script.js">
-	</script>
+  <meta charset="utf-8">
+  <meta name="description" content="WebRTC code samples">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta itemprop="description" content="Client-side WebRTC code samples">
+  <meta itemprop="name" content="WebRTC code samples">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
+  <title>getUserMedia</title>
+  <script type="text/javascript" src="./js/script.js">
+  </script>
 </head>
 
 <body>
-	<div class="orientation-data">
-		<div>
-			<span id="isTrue"></span>
-		</div>
-		<div>
-			<span id="tiltFB"></span>
-		</div>
-		<div>
-			<span id="tiltLR"></span>
-		</div>
-		<div>
-			<span id="direction"></span>
-		</div>
-	</div>
+  <div class="orientation-data">
+    <div>
+      <span id="heading"></span>
+    </div>
+    <div>
+      <span id="supported"></span>
+    </div>
+  </div>
+  <div id="container">
+    <video id="gum-local" autoplay playsinline></video>
+    <script src="js/adapter-latest.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
