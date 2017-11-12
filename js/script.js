@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-
+    count = 0;
     if (window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', function (eventData) {
+            var isTrue = eventData.absolute;
+            if(isTrue == 1)
+                count++;
             // gamma: Tilting the device from left to right. Tilting the device to the right will result in a positive value.
             var tiltLR = eventData.gamma;
 
@@ -12,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var dir = eventData.alpha
 
             // Call the function to use the data on the page.
-            deviceOrientationHandler(tiltLR, tiltFB, dir);
+            deviceOrientationHandler(count, tiltLR, tiltFB, dir);
         }, false);
     };
 
-    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+    function deviceOrientationHandler(count, tiltLR, tiltFB, dir) {
+        document.getElementById("isTrue").innerHTML = Math.ceil(count);
         document.getElementById("tiltLR").innerHTML = Math.ceil(tiltLR);
         document.getElementById("tiltFB").innerHTML = Math.ceil(tiltFB);
         document.getElementById("direction").innerHTML = Math.ceil(dir);
