@@ -9,33 +9,46 @@
 	<script type="text/javascript" src="./js/gps.js"></script>
 	<script type="text/javascript" src="./js/adapter-latest.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/mdb.css">
 </head>
 
 <body>
-	<div class="orientation-data">
-		<div>
-			<span id="heading"></span>
-		</div>
-		<div>
-			<span id="supported"></span>
-		</div>
-	</div>
-	<div id="container">
-		<video id="video" autoplay playsinline>
-
-		</video>
-	</div>
-	<div id="mapContainer">
-		<div id="map">
+	<div class="container">
+		<div class="card">
+			<video id="video" autoplay playsinline>
+			</video>
 
 		</div>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_432x79gFb1uhTYGjzOuSdbl_IFgd1Sw&libraries=places&callback=pos"
-		 async defer></script>
-	</div>
-	<div id="infoContainer">
+		<div class="card-body">
+			<div>
+				<h4>The current compass heading is: </h4>
+				<h4 id="heading" class="card-title text-center"></h4>
+			</div>
+			<!-- <div>
+				<p id="supported" class="card-text"></p>
+			</div> -->
+		</div>
+		<div id="mapContainer">
+			<div id="map">
+			</div>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_432x79gFb1uhTYGjzOuSdbl_IFgd1Sw&libraries=places&callback=pos"
+			 async defer></script>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Bearing</th>
+					<th>Some Angle</th>
+					<th>Type</th>
+				</tr>
+			</thead>
+			<tbody id="infoContainer">
+			</tbody>
+		</table>
 	</div>
 </body>
-
 <script type="text/javascript" src="./js/main.js"></script>
 
 </html>
