@@ -19,7 +19,6 @@ $(document).ready(function () {
     window.stream = stream; // make variable available to browser console
     video.srcObject = stream;
   }
-
   navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess);
 });
 
@@ -28,6 +27,7 @@ var map;
 var infowindow;
 var here;
 var results_pois;
+var heading_max = 0; var heading_min =0;
 
 function pos() {
   if (navigator.geolocation) {
@@ -36,7 +36,6 @@ function pos() {
 }
 
 function initMap(p) {
-
   here = { lat: p.coords.latitude, lng: p.coords.longitude };
   console.log(here);
 
@@ -84,6 +83,7 @@ function createMarker(place) {
 
 function filterPOIs(pois, direction) {
   var fov = 90;
+  $('#infoContainer').clear();
   for (var i = pois.length - 1; i >= 0; i--) {
     var a = direction - pois[i].angle;
     a = (a + 180) % 360 - 180;
@@ -103,8 +103,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       var heading = 0;
       if (eventData.absolute === true && eventData.alpha !== null) {
         heading = compassHeading(eventData.alpha, eventData.beta, eventData.gamma);
-        // Call the function to use the data on the page.
-        filterPOIs(results_pois, heading);
+        if (heading > heading_max || heading < heading_min) {
+          heading_max = heading + 5;
+          heading_min = heading - 5;
+          
+          // Call the function to use the data on the page.
+          filterPOIs(results_pois, heading);
+        }
       }
       deviceOrientationHandler(heading);
     })
@@ -145,14 +150,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // Convert radians to degrees
     compassHeading *= 180 / Math.PI;
-
     return compassHeading;
-
   }
 
   function deviceOrientationHandler(res, alpha) {
     document.getElementById("heading").innerHTML = Math.ceil(res);
-
   }
 });
 
