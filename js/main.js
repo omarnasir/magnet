@@ -26,7 +26,12 @@ $(document).ready(function () {
 var map;
 var infowindow;
 var here;
-var results_pois;
+var results_pois = {
+  {
+    name: "Aalto",
+    angle: "90",
+  }
+};
 var heading_max = 0; var heading_min =0;
 
 function pos() {
@@ -83,7 +88,9 @@ function createMarker(place) {
 
 function filterPOIs(pois, direction) {
   var fov = 90;
-  $('#infoContainer').clear();
+  // $('#infoContainer').clear();
+  $('#infoContainer').empty();
+  
   for (var i = pois.length - 1; i >= 0; i--) {
     var a = direction - pois[i].angle;
     a = (a + 180) % 360 - 180;
