@@ -99,6 +99,10 @@ function filterPOIs(pois, direction) {
   }
 }
 
+function visualization(){
+
+}
+
 //------Compass API
 document.addEventListener("DOMContentLoaded", function (event) {
   count = 0;
@@ -109,13 +113,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
       var heading = 0;
       if (eventData.absolute === true && eventData.alpha !== null) {
         heading = compassHeading(eventData.alpha, eventData.beta, eventData.gamma);
-        if (heading > heading_max || heading < heading_min) {
+        // if (heading > heading_max || heading < heading_min) {
+        if(true){
           heading_max = heading + 5;
           heading_min = heading - 5;
           
           // Call the function to use the data on the page.
           filterPOIs(results_pois, heading);
         }
+        //Do visualization updates here
+        visualization()
       }
       deviceOrientationHandler(heading);
     })
