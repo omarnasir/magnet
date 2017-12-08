@@ -26,12 +26,10 @@ $(document).ready(function () {
 var map;
 var infowindow;
 var here;
-var results_pois = {
-  {
-    name: "Aalto",
-    angle: "90",
-  }
-};
+// var results_pois = [
+//   {"geometry":{"location":{"lat":60.2054911,"lng":24.655899999999974},"viewport":{"south":60.0499087,"west":24.499656500000015,"north":60.3636105,"east":24.8505715}},"icon":"https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png","id":"71675bb33b7c9dd3ce185f1fcb84cfe97a8c7127","name":"Espoo","photos":[{"height":2964,"html_attributions":["<a href=\"https://maps.google.com/maps/contrib/107812077117373232232/photos\">Vladimir Kourakevitch</a>"],"width":5269}],"place_id":"ChIJ4Us9pPryjUYRn1MzXbSQuPA","reference":"CmRbAAAAk3IwsrMz3KijWPyQkVVHWIYfQIZXF5UXS_WsqZRc-OnR78YWDfo7Eeg8tRUo_0F8rQiVdNFMC6IqHrWzPkLsks-K9U0B-9C2hkRD6rthVA7LbHl_BJycMY7xq4iQJfcnEhCQ7A31Tix4mftei_oeQLQCGhQ85pEVthlypO4VRAckS_FoIfv91A","scope":"GOOGLE","types":["locality","political"],"vicinity":"Espoo","html_attributions":[],"angle":-83.91153879524008}
+// ];
+var results_pois;
 var heading_max = 0; var heading_min =0;
 
 function pos() {
@@ -59,9 +57,10 @@ function initMap(p) {
 
 function callback(results, status) {
   console.log(results);
+  // results = results_pois;
   if (status === google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-
+  // if(true){
+    for (var i = 0; i < results.length; i++) {      
       var poi = results[i].geometry.location;
       var dx = poi.lng() - here.lng;
       var dy = poi.lat() - here.lat;
